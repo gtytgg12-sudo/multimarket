@@ -35,6 +35,12 @@ jobs:
       - name: Build frontend
         run: npm run build
 
+      - name: Remove dev files
+        run: |
+          rm -rf node_modules
+          rm -rf .git .github
+          rm -f .gitignore README.md .env.example
+
       - name: Prepare production .env
         run: |
           printf "APP_NAME=Multimarket\nAPP_ENV=production\nAPP_DEBUG=false\nAPP_URL=https://multimarket.in\nAPP_KEY=%s\nAPP_TIMEZONE=UTC\nDB_CONNECTION=mysql\nDB_HOST=127.0.0.1\nDB_PORT=3306\nDB_DATABASE=%s\nDB_USERNAME=%s\nDB_PASSWORD=%s\nSESSION_DRIVER=file\nCACHE_STORE=file\nQUEUE_CONNECTION=sync\nMAIL_MAILER=log\nLOG_CHANNEL=stack\nLOG_LEVEL=error\n" "${{ secrets.APP_KEY }}" "${{ secrets.DB_DATABASE }}" "${{ secrets.DB_USERNAME }}" "${{ secrets.DB_PASSWORD }}" > .env
@@ -46,12 +52,11 @@ jobs:
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASS }}
           local-dir: ./
-          server-dir: /
-          dangerous-clean-slate: false
+          server-dir: /public_html/
           exclude: |
-            .git
-            .github
-            node_modules
+            **/.git*/**
+            **/.github/**
+            **/node_modules/**
             .gitignore
             README.md
             .env.example
