@@ -1,0 +1,182 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #4f46e5;
+    --primary-dark: #4338ca;
+    --text: #1f2937;
+    --text-light: #6b7280;
+    --bg: #ffffff;
+    --bg-light: #f9fafb;
+    --border: #e5e7eb;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.header {
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+}
+
+.logo span {
+    color: var(--primary);
+}
+
+.nav a {
+    margin-left: 2rem;
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.nav a:hover {
+    color: var(--primary);
+}
+
+.hero {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: white;
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.btn-primary {
+    background: white;
+    color: var(--primary);
+}
+
+.btn-primary:hover {
+    background: var(--bg-light);
+}
+
+.section-title {
+    font-size: 1.75rem;
+    margin: 2rem 0 1.5rem;
+    padding: 1.5rem 0 0;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    padding-bottom: 3rem;
+}
+
+.product-card {
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.product-image {
+    height: 200px;
+    background: var(--bg-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-image .placeholder {
+    color: var(--text-light);
+}
+
+.product-info {
+    padding: 1rem;
+}
+
+.product-info h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.product-info .category {
+    font-size: 0.875rem;
+    color: var(--text-light);
+    background: var(--bg-light);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+}
+
+.product-info .price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-top: 0.5rem;
+}
+
+.loading, .no-products {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-light);
+}
+
+.footer {
+    background: var(--bg-light);
+    padding: 2rem 0;
+    text-align: center;
+    color: var(--text-light);
+    border-top: 1px solid var(--border);
+}
